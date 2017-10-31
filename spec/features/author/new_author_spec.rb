@@ -19,6 +19,9 @@ describe "New author page", type: :feature do
     fill_in "author_last_name", :with => 'Turing'
     fill_in "author_homepage", :with => 'http://wikipedia.org/Alan_Turing'
     find('input[type="submit"]').click
+
+    author = Author.where(:first_name => 'Alan')#, last_name: 'Turing', homepage: 'http://wikipedia.org/Alan_Turing')
+    expect(author).not_to be_empty
  end
 
 end
