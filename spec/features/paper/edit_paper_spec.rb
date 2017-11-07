@@ -6,4 +6,5 @@ describe "Paper edit page", type: :feature do
         paper = FactoryGirl.create :paper
         visit edit_paper_path(paper)
     end
+    
 end
