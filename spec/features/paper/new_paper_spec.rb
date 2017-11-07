@@ -34,4 +34,14 @@ describe "New paper page", type: :feature do
 
         expect(page).to have_text("Year can't be blank")
     end
+
+    it "should not validate with year that is not an integer" do
+        visit new_paper_path
+        fill_in "paper_title", :with => 'About nothing and everything'
+        fill_in "paper_venue", :with => 'Mind 49: 433-460'
+        fill_in "paper_year", :with => "nineteen-fifty"
+        find('input[type="submit"]').click
+
+        expect(page).to have_text("Year is not a number")
+    end
 end
