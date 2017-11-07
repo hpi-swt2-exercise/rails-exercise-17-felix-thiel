@@ -13,4 +13,18 @@ describe "papers index page", type: :feature do
         expect(page).to have_text("Mind 49: 433-460")
         expect(page).to have_text(1950)
     end
+
+    it "should have Destroy link" do
+        paper = FactoryGirl.create :paper
+        visit papers_path
+
+        expect(page).to have_link("Destroy")
+    end
+
+    it "should not destroy the whole application if the destroy link is clicked" do
+        paper = FactoryGirl.create :paper
+        visit papers_path
+
+        click_on 'Destroy'
+    end
 end
