@@ -11,7 +11,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171106172909) do
+ActiveRecord::Schema.define(version: 20171107093427) do
+
+  create_table "Authors_Papers", id: false, force: :cascade do |t|
+    t.integer "author_id", null: false
+    t.integer "paper_id",  null: false
+  end
 
   create_table "authors", force: :cascade do |t|
     t.string   "first_name"
