@@ -4,4 +4,9 @@ class Paper < ActiveRecord::Base
     validates :venue, presence: true
     validates :year, presence: true,
                     numericality: true
+    
+
+    def self.publishedIn(year)
+        where("year == ?", year)
+    end
 end
